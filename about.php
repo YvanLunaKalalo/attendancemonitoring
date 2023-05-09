@@ -1,5 +1,5 @@
 <?php
-include('account.php');
+include 'account.php';
 ?>
 
 <!DOCTYPE html>
@@ -8,21 +8,10 @@ include('account.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMS | Home</title>
-    <link rel="stylesheet" href="home.css">
-    <!-- Link BOOTSTRAP 5.3.0 -->
+    <title>AMS | About</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
-
-<!-- <style>
-  body{
-    background-image:url('1.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-</style> -->
 
 <body>
 <form method="POST">
@@ -39,9 +28,9 @@ include('account.php');
           <a class="nav-link active" aria-current="page" href="home.php">Home</a>
         </li>
 
-        <!-- <li class="nav-item">
+        <li class="nav-item">
           <a class="nav-link" href="about.php">About</a>
-        </li> -->
+        </li>
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -55,40 +44,11 @@ include('account.php');
             <li><a class="dropdown-item" href="#">Setting</a></li> -->
           </ul>
         </li>
-        <!-- <form class="d-flex">
-          <input class="form-control mr-3" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success m-1" type="submit">Search</button>
-        </form> -->
       </ul>
       <button class="btn btn-outline-dark" type="logout" name="logout">Logout</button>
     </div>
   </div>
 </nav>
 </form>
-
-<div class="container d-flex justify-content-center align-items-center flex-column">
-<h1 >Welcome, <?php echo $_SESSION['username']; ?>!</h1>
-
-<div class="card" style="width: 18rem;">
-  <img src="../attendancemonitoring/3.jpg" class="card-img-top">
-  <div class="card-body">
-    <h5 class="card-title">Importance of attendance to students</h5>
-    <p class="card-text">By attending class regularly, your child is more likely to keep up with daily lessons and assignments and take quizzes and tests on time. Research has shown that your child's regular attendance may be the greatest factor influencing his/her academic success.</p>
-  </div>
-
-  <!-- <ul class="list-group list-group-flush">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
-  </ul> -->
-  
-  <div class="card-body">
-    <div class="col d-flex justify-content-center">
-      <a href="add.php" class="card-link btn btn-success btn-rounded btn-lg">Time-in</a>
-  </div>
-</div>
-
-     <!-- Link BOOTSTRAP 5.3.0 JS -->
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </body>
 </html>

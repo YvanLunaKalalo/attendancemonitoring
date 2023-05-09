@@ -6,7 +6,8 @@
 
         $sql = "DELETE FROM student WHERE id=$id";
         if ($conn->query($sql) === TRUE) {
-            echo "Record deleted successfully";
+            echo "<script>alert('Record deleted successfully!'); window.location.href = 'attendance.php';</script>";
+
         } else {
             echo "Error deleting record: " . $conn->error;
         }
