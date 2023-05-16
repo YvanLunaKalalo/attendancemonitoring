@@ -24,8 +24,10 @@ if ($result->num_rows > 0) {
 } else {
   // If username and password do not match, show JavaScript alert and redirect back to index.php
   echo "<script>alert('Incorrect Username or Password!'); window.location.href = 'index.php';</script>";
+
   exit();
 }
 
 // Close the database connection
 $conn->close();
+?>

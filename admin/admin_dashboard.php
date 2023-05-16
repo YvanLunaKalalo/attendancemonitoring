@@ -1,15 +1,15 @@
-<?php
-include 'connection.php';
-include 'account.php';
+<?php 
+include ('../connection.php');
+session_start();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-<head>  
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMS | Attendance</title>
+    <title>Admin Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
@@ -18,45 +18,47 @@ include 'account.php';
 <form method="POST">
 <nav class="navbar navbar-expand-lg navbar-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="home.php">AMS</a>
+    <a class="navbar-brand" href="admin_dashboard.php">AMS</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="home.php">Home</a>
-        </li>
+          <a class="nav-link active" aria-current="page" href="admin_dashboard.php">Home</a>
+        </li> -->
 
         <!-- <li class="nav-item">
           <a class="nav-link" href="about.php">About</a>
         </li> -->
 
-        <li class="nav-item dropdown">
+        <!-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dashboard
-          </a>
+          </a> -->
 
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <!-- <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="profile.php">Profile</a></li>
-            <li><a class="dropdown-item" href="attendance.php">Attendance</a></li>
+            <li><a class="dropdown-item" href="attendance.php">Attendance</a></li> -->
             <!-- <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Setting</a></li> -->
-          </ul>
-        </li>
-      </ul>
-      <button class="btn btn-outline-dark" type="logout" name="logout">Logout</button>
+          <!-- </ul>
+        </li> -->
+        <!-- <form class="d-flex">
+          <input class="form-control mr-3" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success m-1" type="submit">Search</button>
+        </form> -->
+      <!-- </ul> -->
+      <a class="btn btn-outline-dark" href="admin_index.php" type="logout" name="logout">Logout</a>
+      
     </div>
   </div>
 </nav>
 </form>
 
 <div class="container mt-5">
-    <h1 class="text-center">Student Attendance Monitoring System</h1>
-    <div class="d-flex justify-content-end">
-        <a href="add.php" class="btn btn-success mb-5">Add New Record</a>
-    </div>
+    <h1 class="text-center mb-5">Admin Attendance Monitoring System</h1>
 
     <form method="GET" class="mb-3">
         <div class="row">
@@ -87,10 +89,11 @@ include 'account.php';
                 <th>Phone Number</th>
                 <th>Time in</th>
                 <th>Time out</th>
+                <th>Action</th>
             </tr>
 
             <?php
-                include 'connection.php';
+                include '../connection.php';
 
                 // Check if search form has been submitted
                 if (isset($_GET['search_student_id']) || isset($_GET['search_full_name'])) {
@@ -156,6 +159,10 @@ include 'account.php';
                             echo "<td>".$row['phone_num']."</td>";
                             echo "<td>".$row['time_in']."</td>";
                             echo "<td>".$row['time_out']."</td>";
+                            echo "<td>
+                                    <a href='admin_edit.php?id=".$row['id']."' class='btn btn-sm btn-primary'>Edit</a>
+                                    <a href='admin_delete.php?id=".$row['id']."' onclick='return confirm(\"Are you sure?\")' class='btn btn-sm btn-danger'>Delete</a>
+                                </td>";
                             echo "</tr>";
                         }
                     } else {
@@ -169,6 +176,6 @@ include 'account.php';
     
         </table>
     </div>
-    </div>
+
 </body>
 </html>
